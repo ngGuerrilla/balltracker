@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 url = "http://192.168.1.124:4747/video"
-cp = cv2.VideoCapture(url)
+cap = cv2.VideoCapture(url)
 
 while (True):
     camera, frame = cap.read()
