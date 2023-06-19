@@ -4,13 +4,13 @@ import cv2
 # This is to pull the information about what each object is called
 classNames = []
 # "/home/pi/Desktop/Object_Detection_Files/coco.names"
-classFile = "src/object_detection_files/coco.names"
+classFile = "./object_detection_files/coco.names"
 with open(classFile, "rt") as f:
     classNames = f.read().rstrip("\n").split("\n")
 
 # This is to pull the information about what each object should look like
-configPath = "src/object_detection_files/ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt"
-weightsPath = "src/object_detection_files/frozen_inference_graph.pb"
+configPath = "./object_detection_files/ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt"
+weightsPath = "./object_detection_files/frozen_inference_graph.pb"
 
 # This is some set up values to get good results
 net = cv2.dnn_DetectionModel(weightsPath, configPath)
