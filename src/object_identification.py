@@ -1,5 +1,6 @@
 # Import the Open-CV extra functionalities
 import cv2
+from picamera2 import Picamera2
 
 # This is to pull the information about what each object is called
 classNames = []
