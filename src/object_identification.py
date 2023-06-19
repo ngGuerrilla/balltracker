@@ -48,14 +48,21 @@ def getObjects(img, thres, nms, draw=True, objects=[]):
 # Below determines the size of the live feed window that will be displayed on the Raspberry Pi OS
 if __name__ == "__main__":
 
-    cap = cv2.VideoCapture(0)
-    cap.set(3, 640)
-    cap.set(4, 480)
-    # cap.set(10,70)
+    # cap = cv2.VideoCapture(0)
+    cap = Picamera2()
+    cap.configure(
+        cap.create_preview_configuration(
+            main={"format": "RGB888", "size": (640, 480)}
+        )
+    )
+    cap.start()
+    # cap.set(3, 640)
+    # cap.set(4, 480)
 
 # Below is the never ending loop that determines what will happen when an object is identified.
     while True:
-        success, img = cap.read()
+        # success, img = cap.read()
+        img = cap.capture_array()
 # Below provides a huge amount of controll. the 0.45 number is the threshold number, the 0.2 number is the nms number)
         result, objectInfo = getObjects(img, 0.45, 0.2)
         # print(objectInfo)
